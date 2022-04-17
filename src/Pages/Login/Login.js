@@ -1,10 +1,11 @@
 import React from "react";
 import { Button, Card, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "./Login.css";
 
 const Login = () => {
   return (
-    <div className="w-50 mx-auto my-5">
+    <div className="mx-auto my-5 rafat-custom-size">
       <Card>
         <Card.Header className="bg-success text-white fw-bold">
           Login

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
-    <div className="w-50 mx-auto my-5">
+    <div className="rafat-custom-size mx-auto my-5">
       <Card>
         <Card.Header className="bg-success text-white fw-bold">
           Sign Up
