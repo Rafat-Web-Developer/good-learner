@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, Card, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import "./Login.css";
+import auth from "../../firebase.init";
+import Loading from "../Loading/Loading";
 
 const Login = () => {
+  const emailRef = useRef("");
+  const passwordRef = useRef("");
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+
+  const navigate = useNavigate();
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
+
+  if (user) {
+    navigate("/");
+  }
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+
+    await signInWithEmailAndPassword(email, password);
+  };
+
   return (
     <div className="mx-auto my-5 rafat-custom-size">
       <Card>
@@ -11,14 +38,27 @@ const Login = () => {
           Login
         </Card.Header>
         <Card.Body>
-          <Form>
+          <Form onSubmit={handleLogin}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Control type="email" placeholder="Enter your email" />
+              <Form.Control
+                ref={emailRef}
+                type="email"
+                placeholder="Enter your email"
+                required
+              />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Control type="password" placeholder="Enter your password" />
+              <Form.Control
+                ref={passwordRef}
+                type="password"
+                placeholder="Enter your password"
+                required
+              />
             </Form.Group>
+            {error && (
+              <p className="alert alert-danger fw-bold">{error.message}</p>
+            )}
             <Button variant="success" type="submit" className="w-100 fw-bold">
               Login
             </Button>
