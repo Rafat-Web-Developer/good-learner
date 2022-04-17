@@ -6,6 +6,7 @@ import Home from "./Pages/Home/Home";
 import Login from "./Pages/Login/Login";
 import NotFound from "./Pages/NotFound/NotFound";
 import Checkout from "./Pages/Protected/Checkout/Checkout";
+import Profile from "./Pages/Protected/Profile/Profile";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Header from "./Pages/Shared/Header/Header";
 import SignUp from "./Pages/SignUp/SignUp";
@@ -21,6 +22,7 @@ function App() {
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/checkout" element={<Checkout></Checkout>}></Route>
+        <Route path="/profile" element={<Profile></Profile>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
