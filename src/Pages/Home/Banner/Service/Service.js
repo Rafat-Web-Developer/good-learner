@@ -1,8 +1,15 @@
 import React from "react";
 import { Button, Card, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Service = ({ service }) => {
   const { img, name, description } = service;
+  const navigate = useNavigate();
+
+  const handleCheckoutBtn = () => {
+    navigate("/checkout");
+  };
+
   return (
     <Col>
       <Card className="shadow-lg">
@@ -10,7 +17,11 @@ const Service = ({ service }) => {
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.Text>{description}</Card.Text>
-          <Button variant="danger" className="w-100 shadow-lg fw-bold">
+          <Button
+            onClick={handleCheckoutBtn}
+            variant="danger"
+            className="w-100 shadow-lg fw-bold"
+          >
             Checkout
           </Button>
         </Card.Body>
