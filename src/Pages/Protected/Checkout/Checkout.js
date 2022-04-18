@@ -11,7 +11,7 @@ const Checkout = () => {
     <div className="rafat-custom-size mx-auto my-5">
       <Card>
         <Card.Header className="bg-success text-white fw-bold">
-          Sign Up
+          Shipping Information
         </Card.Header>
         <Card.Body>
           <Form>

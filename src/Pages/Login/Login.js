@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useSignInWithEmailAndPassword,
   useSendPasswordResetEmail,
+  useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import "./Login.css";
 import auth from "../../firebase.init";
@@ -18,17 +19,18 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [sendPasswordResetEmail, sending, error2] =
     useSendPasswordResetEmail(auth);
+  const [signInWithGoogle, user2, loading2, error3] = useSignInWithGoogle(auth);
 
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location?.state?.from?.pathname || "/";
 
-  if (loading) {
+  if (loading || loading2) {
     return <Loading></Loading>;
   }
 
-  if (user) {
+  if (user || user2) {
     navigate(from, { replace: true });
   }
 
@@ -49,6 +51,10 @@ const Login = () => {
     }
     await sendPasswordResetEmail(email);
     toast("Reset password link send on your email.");
+  };
+
+  const handleGoogleSignIn = () => {
+    signInWithGoogle();
   };
 
   return (
@@ -82,6 +88,9 @@ const Login = () => {
             {error2 && (
               <p className="alert alert-danger fw-bold">{error2.message}</p>
             )}
+            {error3 && (
+              <p className="alert alert-danger fw-bold">{error3.message}</p>
+            )}
             <Button variant="success" type="submit" className="w-100 fw-bold">
               Login
             </Button>
@@ -108,7 +117,12 @@ const Login = () => {
             <p className="fw-bold text-success pt-3 px-2">Or</p>
             <div style={{ height: "2px" }} className="w-25 bg-success"></div>
           </div>
-          <Button variant="success" type="submit" className="w-100 fw-bold">
+          <Button
+            variant="success"
+            type="button"
+            className="w-100 fw-bold"
+            onClick={handleGoogleSignIn}
+          >
             Google
           </Button>
         </Card.Body>

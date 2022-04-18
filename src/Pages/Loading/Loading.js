@@ -3,7 +3,7 @@ import { Button, Spinner } from "react-bootstrap";
 
 const Loading = () => {
   return (
-    <section>
+    <section style={{ height: "500px" }}>
       <div
         className="d-flex justify-content-center align-items-center"
         style={{ height: "300px" }}
