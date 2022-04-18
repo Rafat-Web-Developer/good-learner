@@ -4,8 +4,11 @@ import myImage from "../../images/my_main_pic.jpg";
 
 const About = () => {
   return (
-    <Container className="my-5">
-      <Card className="shadow-lg py-2">
+    <Container
+      className="d-flex align-items-center"
+      style={{ height: "450px" }}
+    >
+      <Card className="shadow-lg py-2 w-100">
         <Row>
           <Col
             md="4"
