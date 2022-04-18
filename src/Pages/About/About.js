@@ -25,10 +25,14 @@ const About = () => {
           <Col md="8">
             <Card.Body>
               <Card.Title>Name : Rafat Hossain</Card.Title>
-              <p className="text-muted">BSc (Hons) in CSE</p>
-              <Card.Text>Phone : 01876903613</Card.Text>
-              <Card.Text>Email : rafat.webdeveloper@gmail.com</Card.Text>
-              <Card.Text>Address : Satkania, Chittagong, Bangladesh</Card.Text>
+              <Card.Text>
+                Bismillahir rahmanir Rahim. My goal is to get paradise from
+                Allah. For this I went to follow all the rules of quran and
+                sunnah. For get paradise I went to be a good helpful man for
+                other people. For this I went to create something new which is
+                helpful for the world. So, that why I learn more about Islam and
+                world people mind Alhamdulillah.
+              </Card.Text>
             </Card.Body>
           </Col>
         </Row>
