@@ -3,7 +3,7 @@ import { Button, Card, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Service = ({ service }) => {
-  const { img, name, description } = service;
+  const { img, name, description, price } = service;
   const navigate = useNavigate();
 
   const handleCheckoutBtn = () => {
@@ -15,8 +15,11 @@ const Service = ({ service }) => {
       <Card className="shadow-lg">
         <Card.Img variant="top" src={img} />
         <Card.Body>
-          <Card.Title>{name}</Card.Title>
+          <Card.Title className="text-center">{name}</Card.Title>
           <Card.Text>{description}</Card.Text>
+          <div className="text-center">
+            <p className="badge bg-success fs-5 fw-bold">{price}</p>
+          </div>
           <Button
             onClick={handleCheckoutBtn}
             variant="danger"

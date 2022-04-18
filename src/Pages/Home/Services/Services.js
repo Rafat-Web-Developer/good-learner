@@ -1,26 +1,32 @@
 import React from "react";
 import Service from "../Banner/Service/Service";
 import service1 from "../../../images/services/images.png";
+import service2 from "../../../images/services/home_tutor.png";
+import service3 from "../../../images/services/web.png";
 import { Container, Row } from "react-bootstrap";
 
 const services = [
   {
     id: 1,
     name: "Home Tutor",
-    description: "Description Here...",
+    description: "If you went to guide your child, you can choose me.",
+    price: 2000,
     img: service1,
   },
   {
     id: 2,
     name: "Online Tutor",
-    description: "Description Here...",
-    img: service1,
+    description: "I take the online classes using zoom and meet.",
+    price: 3000,
+    img: service2,
   },
   {
     id: 3,
     name: "Web Development",
-    description: "Description Here...",
-    img: service1,
+    description:
+      "Complete web development using html, css, bootstrap, tailwind, javascript, react, firebase, php and laravel",
+    price: 5000,
+    img: service3,
   },
 ];
 
