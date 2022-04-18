@@ -30,7 +30,14 @@ function App() {
             </RequireAuth>
           }
         ></Route>
-        <Route path="/profile" element={<Profile></Profile>}></Route>
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth>
+              <Profile></Profile>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
