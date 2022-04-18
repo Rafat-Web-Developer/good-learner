@@ -27,7 +27,7 @@ const StudentFeedBack = () => {
         Students Feedback
       </h1>
       <Container>
-        <Row md="3">
+        <Row xs="1" md="3" className="g-4">
           {feedBacks.map((feedBack) => (
             <SingleFeedBack
               key={feedBack.id}
