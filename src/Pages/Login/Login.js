@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { Button, Card, Form } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   useSignInWithEmailAndPassword,
   useSendPasswordResetEmail,
@@ -20,13 +20,16 @@ const Login = () => {
     useSendPasswordResetEmail(auth);
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location?.state?.from?.pathname || "/";
 
   if (loading) {
     return <Loading></Loading>;
   }
 
   if (user) {
-    navigate("/");
+    navigate(from, { replace: true });
   }
 
   const handleLogin = async (e) => {
